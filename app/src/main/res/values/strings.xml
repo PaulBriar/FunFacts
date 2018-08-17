@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Fun Facts</string>
+    <string name="app_name">Pregnancy Facts</string>
+    <string name="welcome">Click the button below for random facts about pregnancy!</string>
+    <string name="did_you_know">Did you know?</string>
+    <string name="random_facts_button">SHOW RANDOM PREGNANCY FACT</string>
 </resources>

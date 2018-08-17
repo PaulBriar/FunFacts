@@ -1,6 +1,5 @@
 package com.paulbriar.funfacts;
 
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Random;
-
 public class FunFactsActivity extends AppCompatActivity {
     public static final String TAG = FunFactsActivity.class.getSimpleName();
     private FactBook factBook = new FactBook();
@@ -19,7 +16,7 @@ public class FunFactsActivity extends AppCompatActivity {
     // Declare our View variables
     private TextView factTextView;
     private Button showFactButton;
-    private RelativeLayout relatelayout;
+    private RelativeLayout relativeLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +26,7 @@ public class FunFactsActivity extends AppCompatActivity {
         // Assign the Views from the layout file to the corresponding variables
         factTextView = findViewById(R.id.factTextView);
         showFactButton = findViewById(R.id.showFactButton);
-        relatelayout = findViewById(R.id.relativelayout);
+        relativeLayout = findViewById(R.id.relativelayout);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -38,13 +35,13 @@ public class FunFactsActivity extends AppCompatActivity {
                 //Update the screen with our new fact
                 factTextView.setText(fact);
                 int color = colorwheel.getColor();
-                relatelayout.setBackgroundColor(color);
+                relativeLayout.setBackgroundColor(color);
                 showFactButton.setTextColor(color);
+                Toast.makeText(FunFactsActivity.this, "You are beautiful.. and thin!", Toast.LENGTH_SHORT).show();
             }
         };
         showFactButton.setOnClickListener(listener);
-        //Toast.makeText(this, "Yay! Our activity was created!", Toast.LENGTH_SHORT).show();
-        Log.d(TAG,"We're logging from the onCreate() Method");
+        Log.d(TAG, "Logging from the onCreate() method");
 
 
     }
