@@ -11,12 +11,24 @@ import android.widget.Toast;
 
 public class FunFactsActivity extends AppCompatActivity {
     public static final String TAG = FunFactsActivity.class.getSimpleName();
-    private FactBook factBook = new FactBook();
-    private ColorWheel colorwheel = new ColorWheel();
+    private static final String KEY_FACT = "KEY_FACT";
+    private static final String KEY_COLOR = "KEY_COLOR";
+    private FactBook mFactBook = new FactBook();
+    private ColorWheel mColorwheel = new ColorWheel();
     // Declare our View variables
-    private TextView factTextView;
-    private Button showFactButton;
-    private RelativeLayout relativeLayout;
+    private TextView mFactTextView;
+    private Button mShowFactButton;
+    private RelativeLayout mRelativeLayout;
+    private String mFact;
+    private int mColor;
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(KEY_FACT, mFact);
+        outState.putInt(KEY_COLOR, mColor);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +36,23 @@ public class FunFactsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fun_facts);
 
         // Assign the Views from the layout file to the corresponding variables
-        factTextView = findViewById(R.id.factTextView);
-        showFactButton = findViewById(R.id.showFactButton);
-        relativeLayout = findViewById(R.id.relativelayout);
+        mFactTextView = findViewById(R.id.factTextView);
+        mShowFactButton = findViewById(R.id.showFactButton);
+        mRelativeLayout = findViewById(R.id.relativelayout);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String fact = factBook.getFact();
+                mFact = mFactBook.getFact();
                 //Update the screen with our new fact
-                factTextView.setText(fact);
-                int color = colorwheel.getColor();
-                relativeLayout.setBackgroundColor(color);
-                showFactButton.setTextColor(color);
+                mFactTextView.setText(mFact);
+                mColor = mColorwheel.getColor();
+                mRelativeLayout.setBackgroundColor(mColor);
+                mShowFactButton.setTextColor(mColor);
                 Toast.makeText(FunFactsActivity.this, "You are beautiful.. and thin!", Toast.LENGTH_SHORT).show();
             }
         };
-        showFactButton.setOnClickListener(listener);
+        mShowFactButton.setOnClickListener(listener);
         Log.d(TAG, "Logging from the onCreate() method");
 
 

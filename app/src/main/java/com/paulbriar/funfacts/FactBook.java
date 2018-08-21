@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class FactBook {
     //Fields or Member variables - Properties about the object
-    //Array of random facts
-    private String[] facts = {
+    //Array of random mFacts
+    private String[] mFacts = {
             "Nipple stimulation is the only scientifically proven method of legitimately bringing on labour.",
             "The longest known pregnancy lasted for a year and 10 days.",
             "Babies can taste the food their mothers eat in the womb.",
@@ -33,7 +33,7 @@ public class FactBook {
 
         //Randomly select a fact
         Random randomGenerator = new Random();
-        int randomNumber = randomGenerator.nextInt(facts.length);
-        return facts[randomNumber];
+        int randomNumber = randomGenerator.nextInt(mFacts.length);
+        return mFacts[randomNumber];
     }
 }
